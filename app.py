@@ -1,5 +1,9 @@
 import nlopt
 from numpy import *
+from flask import Flask, jsonify, request
+import os
+
+port = os.getenv('PORT') or 5003
 
 def myfunc(x, grad):
     if grad.size > 0:
@@ -19,9 +23,25 @@ opt.set_min_objective(myfunc)
 opt.add_inequality_constraint(lambda x,grad: myconstraint(x,grad,2,0), 1e-8)
 opt.add_inequality_constraint(lambda x,grad: myconstraint(x,grad,-1,1), 1e-8)
 opt.set_xtol_rel(1e-4)
-x = opt.optimize([1.234, 5.678])
-minf = opt.last_optimum_value()
 
-print("optimum at ", x[0], x[1])
-print("minimum value = ", minf)
-print("result code = ", opt.last_optimize_result())
+
+# print("optimum at ", x[0], x[1])
+# print("minimum value = ", minf)
+# print("result code = ", opt.last_optimize_result())
+
+app = Flask(__name__)
+
+@app.route('/', methods=['GET'])
+def index():
+  nums = request.args
+
+  x = opt.optimize([nums['num1'], nums['num2']])
+  minf = opt.last_optimum_value()
+  
+  return jsonify({
+    "optimum at ": [x[0], x[1]],
+    "minumum value": minf,
+    "result code": opt.last_optimize_result()
+  })
+
+app.run(port=port, host='0.0.0.0', debug=True)
