@@ -3,7 +3,7 @@ from numpy import *
 from flask import Flask, jsonify, request
 import os
 
-port = 5003
+port = os.getenv('PORT') or 5003
 
 def myfunc(x, grad):
     if grad.size > 0:
