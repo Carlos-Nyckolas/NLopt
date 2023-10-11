@@ -33,7 +33,7 @@ app = Flask(__name__)
 
 @app.route('/', methods=['GET'])
 def index():
-  nums = request.args
+  nums = request.get_json()
 
   x = opt.optimize([nums['num1'], nums['num2']])
   minf = opt.last_optimum_value()
