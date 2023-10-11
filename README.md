@@ -1,6 +1,6 @@
 # NLopt
 
-## Documentação
+## Documentação do NLopt
 
 NLopt é uma biblioteca de otimização não linear, ou seja, quando no resultado obtemos uma parábola, com curvas ou retas não lineares, obtendo muitos valores Y para apenas um X.
 Pode-se utilizar a biblioteca nas linguagens: C, C++, Fortran, Matlab ou GNU Octave, Python, GNU Guile, Julia, GNU R, Lua, OCalm, Rust e Crystal.
@@ -49,7 +49,7 @@ from numpy import *
 
 ## Inforcações do projeto
 
-### dependencias:
+### bibliotecas utilizadas:
 
 - nlopt
 - flask
