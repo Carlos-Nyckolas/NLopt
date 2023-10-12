@@ -57,10 +57,10 @@ from numpy import *
 
 ### como rodar?
 
-#### para rodar com docker compose use o comando: 
+#### para criar a imagem docker: 
 
 ```shell
-docker compose up -d
+docker build -t nlopt .
 ```
 
 #### para rodar localmente:
@@ -77,5 +77,5 @@ pip install "uvicorn[standard]"
 rode o comando:
 
 ```shell
-uvicorn app:app --reload
+uvicorn app.main:app --reload
 ```
