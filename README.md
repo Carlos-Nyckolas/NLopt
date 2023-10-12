@@ -52,8 +52,8 @@ from numpy import *
 ### dependencias:
 
 - nlopt
-- flask
 - numpy
+- FastAPI
 
 ### como rodar?
 
