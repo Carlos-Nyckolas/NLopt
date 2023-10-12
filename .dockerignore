@@ -1,4 +1,5 @@
 venv/
+__pycache__/
 .gitignore
 docker-compose.yml
 README.md

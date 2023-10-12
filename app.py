@@ -1,6 +1,7 @@
 import nlopt
 from numpy import *
-from flask import Flask, jsonify, request
+from fastapi import FastAPI
+from pydantic import BaseModel
 import os
 
 port = os.getenv('PORT') or 5003
@@ -24,24 +25,19 @@ opt.add_inequality_constraint(lambda x,grad: myconstraint(x,grad,2,0), 1e-8)
 opt.add_inequality_constraint(lambda x,grad: myconstraint(x,grad,-1,1), 1e-8)
 opt.set_xtol_rel(1e-4)
 
+class Nums(BaseModel):
+    num1: float
+    num2: float
 
-# print("optimum at ", x[0], x[1])
-# print("minimum value = ", minf)
-# print("result code = ", opt.last_optimize_result())
+app = FastAPI()
 
-app = Flask(__name__)
-
-@app.route('/', methods=['GET'])
-def index():
-  nums = request.get_json()
-
-  x = opt.optimize([nums['num1'], nums['num2']])
-  minf = opt.last_optimum_value()
-  
-  return jsonify({
-    "optimum at ": [x[0], x[1]],
-    "minumum value": minf,
-    "result code": opt.last_optimize_result()
-  })
-
-app.run(port=port, host='0.0.0.0', debug=True)
+@app.get("/")
+def index(nums: Nums):
+    x = opt.optimize([nums.num1, nums.num2])
+    minf = opt.last_optimum_value()
+    
+    return {
+        "optimum at ": [x[0], x[1]],
+        "minumum value": minf,
+        "result code": opt.last_optimize_result()
+    }
