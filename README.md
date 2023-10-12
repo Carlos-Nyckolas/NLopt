@@ -57,8 +57,25 @@ from numpy import *
 
 ### como rodar?
 
-parar rodar localmente use o comando: 
+#### para rodar com docker compose use o comando: 
 
 ```shell
 docker compose up -d
+```
+
+#### para rodar localmente:
+
+baixe as dependencias:
+
+```shell
+pip install numpy
+pip install nlopt
+pip install fastapi
+pip install "uvicorn[standard]"
+```
+
+rode o comando:
+
+```shell
+uvicorn app:app --reload
 ```
