@@ -9,10 +9,7 @@ ARG PORT
 
 ENV PORT=$PORT
 
-RUN pip install numpy
-RUN pip install nlopt
-RUN pip install fastapi
-RUN pip install "uvicorn[standard]"
+RUN pip install -r requirements.txt
 
 WORKDIR /app
 

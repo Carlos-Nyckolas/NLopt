@@ -68,10 +68,7 @@ docker build -t nlopt .
 baixe as dependencias:
 
 ```shell
-pip install numpy
-pip install nlopt
-pip install fastapi
-pip install "uvicorn[standard]"
+pip install -r requirements.txt
 ```
 
 rode o comando:
