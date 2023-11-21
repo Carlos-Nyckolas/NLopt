@@ -65,6 +65,14 @@ docker build -t nlopt .
 
 #### para rodar localmente:
 
+crie um virtualenv:
+
+```shell
+python -m venv venv
+
+source venv/bin/activate
+```
+
 baixe as dependencias:
 
 ```shell
