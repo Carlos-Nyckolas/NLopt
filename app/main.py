@@ -1,9 +1,9 @@
 from fastapi import FastAPI
-from .nlopt_calc import *
-from .nums import Nums
+from .models.benchmarking_model import Benchmarking
+from .functions.benchmarking_fuctions import execute
 
 app = FastAPI()
 
 @app.get("/")
-def index(nums: Nums):
-    return calc(nums.num1, nums.num2)
+def index(benchmarking_data: Benchmarking):
+    return execute(benchmarking_data.functionx, benchmarking_data.x)
