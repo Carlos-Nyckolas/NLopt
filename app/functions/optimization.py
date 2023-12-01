@@ -22,3 +22,4 @@ opt.set_upper_bounds(ub) #setando os pontos máximos
 opt.set_min_objective(my_func,None) #??
 opt.get_xtol_rel(xtol) #get interval = pegando o intervalo 
 opt.set_maxeval(num_test) #how many times will the code run = quantas vezes o codigo vai rodar
+print("result code =".opt.last_optimize_result())
