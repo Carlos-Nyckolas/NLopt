@@ -141,8 +141,10 @@ def execute (functionx, x):
         r = DixonPr(x)
     elif functionx==10:
         r = Michal(x)
+    else:
+        print("erro")
     return r
 # example - vectorx is a 3rd order vector with values from 0 to 1
-vectorx = np.random.uniform(0,1,3)
-for algorithm in range(1,11):
-    print(execute(algorithm, vectorx))
+# vectorx = np.random.uniform(0,1,3)
+# for algorithm in range(1,11):
+#     print(execute(algorithm, vectorx))
