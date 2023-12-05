@@ -34,7 +34,7 @@
 // //	else
 // //		return -1.0;
 // }
-// double myvconstraint(const std::vector<double> &x, std::vector<double> &grad, void *data)
+// double myvconstraint(const std::vector<double> &x, std::vector<double> &g ad, void *data)
 // {
 //     my_constraint_data *d = reinterpret_cast<my_constraint_data*>(data);
 //     double a = d->a, b = d->b;

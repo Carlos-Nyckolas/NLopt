@@ -120,30 +120,20 @@ def Michal(x):
         newx = np.sin(xi) * np.power(np.sin(i*xi*xi/pi),2*m)
         sumx = sumx + newx
     return -sumx
-def execute (functionx, x):
-    if functionx==1:
-        r = Ackley(x)
-    elif functionx==2:
-        r = Griewank(x)
-    elif functionx==3:
-        r = Levy(x)
-    elif functionx==4:
-        r = Rastrigin(x)
-    elif functionx==5:
-        r = Schwefel(x)
-    elif functionx==6:
-        r = Perm0db(x)
-    elif functionx==7:
-        r = Sphere(x)
-    elif functionx==8:
-        r = Zakharov(x)
-    elif functionx==9:
-        r = DixonPr(x)
-    elif functionx==10:
-        r = Michal(x)
-    else:
-        print("erro")
-    return r
+
+functions = {
+    1:Ackley,
+    2:Griewank,
+    3:Levy,
+    4:Rastrigin,
+    5:Schwefel,
+    6:Perm0db,
+    7:Sphere,
+    8:Zakharov,
+    9:DixonPr,
+    10:Michal,
+}
+
 # example - vectorx is a 3rd order vector with values from 0 to 1
 # vectorx = np.random.uniform(0,1,3)
 # for algorithm in range(1,11):

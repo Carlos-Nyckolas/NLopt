@@ -1,7 +1,7 @@
 import sys
 import nlopt
 from numpy import *
-from benchmarking_fuctions import execute
+from benchmarking_fuctions import functions
 
 def my_func(): #main function
     
@@ -14,7 +14,7 @@ xtol = sys.argv[4] #interval = intervalo ex:1e-4
 dimensions = sys.argv[5] #number of dimensios = número de dimenções
 num_test = sys.argv[6] #number of tests = número de quantos teste serão feitos
 
-execute(p_type,x) #função de execução das funções
+functions[p_type](x) #função de execução das funções
 
 opt = nlopt.opt(nlopt.LD_MMA,dimensions) #NLopt class
 opt.set_lower_bounds(lb) #setando os pontos mínimos
